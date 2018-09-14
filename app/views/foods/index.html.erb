@@ -1,0 +1,29 @@
+<div class="text-center album py-5">
+  <div class="container col-10">
+    <h1><b>먹방사진첩</b></h1>
+    <div class="container col-4">
+      <p class="new-post-text"><%= link_to '또 쳐먹었음', new_food_path, :class => 'btn btn-lg btn-success btn-block' %></p>
+    </div>
+    <div class="album py-5">
+      <div class="row">
+        <% @foods.each do |food| %>
+      <div class="col-md-3">
+        <div class ="card mb-4 box-shadow">
+          <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="<%= food.foodimage %>">
+            <div class="card-body">
+              <h5 style="height:60px;"><%= link_to food.title, food, :class => "post-title-text" %></h5>
+              <p class="card-text"></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to '수정', edit_food_path(food) , :class => "btn btn-success" %>
+                  <%= link_to '삭제', food, method: :delete, :class => "btn btn-light post-title-delete",  data: { confirm: '정말 삭제하시겠습니까?' } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

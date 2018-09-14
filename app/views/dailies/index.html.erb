@@ -1,0 +1,29 @@
+<div class="text-center album py-5">
+  <div class="container col-10">
+    <h1><b>일상사진첩</b></h1>
+    <div class="container col-4">
+      <p class="new-post-text"><%= link_to '오랜만에 밖에 나감', new_daily_path, :class => 'btn btn-lg btn-success btn-block' %></p>
+    </div>
+    <div class="album py-5">
+      <div class="row">
+        <% @dailies.each do |daily| %>
+      <div class="col-md-3">
+        <div class ="card mb-4 box-shadow">
+          <img class="card-img-top" style="height: 225px; width: 100%; display: block;" src="<%= daily.dailyimage %>">
+            <div class="card-body">
+              <h5 style="height:60px;"><%= link_to daily.title, daily, :class => "post-title-text" %></h5>
+              <p class="card-text"></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to '수정', edit_daily_path(daily) , :class => "btn btn-success" %>
+                  <%= link_to '삭제', daily, method: :delete, :class => "btn btn-light post-title-delete",  data: { confirm: '정말 삭제하시겠습니까?' } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

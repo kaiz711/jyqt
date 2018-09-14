@@ -1,0 +1,10 @@
+<div class="container card mb-3 col-6">
+  <img class="card-img-top" src="<%= @daily.dailyimage %>" style="padding-top:10px;">
+  <div class="card-body">
+    <center><h2 class="card-title"><b><%= @daily.title %></b></h2></center>
+    <center><h5 class="card-text"><%= @daily.content %></h5></center>
+  </div>
+  <center>
+    <%= link_to '뒤로가기', dailies_path %>
+  </center>
+</div>
